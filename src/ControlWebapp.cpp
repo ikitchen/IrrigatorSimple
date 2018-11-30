@@ -1,20 +1,7 @@
 #include "ControlWebapp.h"
 
-#define SECONDS * 1000
-#define MINUTES * 60000
-String js =
-    "<script>"
-    "var end=Date.now()+_e;"
-    "setInterval(function () {"
-    "var elapsed=end-Date.now();"
-    "if(elapsed<=0){"
-    /**/ "window.location.reload();"
-    "}"
-    "else{"
-    /**/ "document.getElementById('elapsed').innerText=(elapsed/1000)|0;"
-    "}"
-    "}, 1000)"
-    "</script>";
+#define SECONDS *1000
+#define MINUTES *60000
 
 void ControlWebapp::setTimerPin(uint8_t pin)
 {
@@ -67,7 +54,9 @@ void ControlWebapp::handler(HttpMethod method, String *path)
             client->println("<p>Elapsed: <span id=elapsed>--</span>s</p>");
             htmlButtonForm("/off", "Off");
             client->println("<script>var _e=" + String(getRest()) + ";</script>");
-            client->println(js);
+            client->println("<script>");
+            client->println(TIMER_JS);
+            client->println("</script>");
         }
     }
 

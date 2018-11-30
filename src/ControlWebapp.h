@@ -1,6 +1,7 @@
 #ifndef CONTROL_WEBAPP_H
 #define CONTROL_WEBAPP_H
 #include "Webapp.h"
+#include "timer.js.h"
 
 class ControlWebapp : public Webapp
 {
