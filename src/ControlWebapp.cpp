@@ -20,7 +20,6 @@ void ControlWebapp::onLoop()
 {
     if (isOn)
     {
-        Serial.println("on");
         digitalWrite(13, HIGH);
         unsigned long duration = getDuration();
         if (duration > timerDuration)
@@ -30,7 +29,6 @@ void ControlWebapp::onLoop()
     }
     else
     {
-        Serial.println("off");
         digitalWrite(13, LOW);
     }
 }
