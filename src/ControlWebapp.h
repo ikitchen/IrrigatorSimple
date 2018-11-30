@@ -8,6 +8,7 @@ public:
   ControlWebapp(EthernetServer *server) : Webapp(server)
   {
   }
+  void setTimerPin(uint8_t pin);
 
 protected:
   void handler(HttpMethod method, String *path);
@@ -18,6 +19,7 @@ protected:
   unsigned long getRest();
   void htmlButtonForm(String action, String label);
 
+  uint8_t timerPin;
   unsigned long timerDuration;
   unsigned long timeOn = 0;
   bool isOn = false;

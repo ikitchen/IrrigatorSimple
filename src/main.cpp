@@ -7,9 +7,11 @@
 EthernetServer server(80);
 ControlWebapp app(&server);
 
+
 void setup()
 {
-  pinMode(13, OUTPUT);
+  app.setTimerPin(timerPin);
+  pinMode(timerPin, OUTPUT);
 
   // Open serial communications and wait for port to open:
   Serial.begin(9600);

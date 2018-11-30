@@ -16,11 +16,15 @@ String js =
     "}, 1000)"
     "</script>";
 
+void ControlWebapp::setTimerPin(uint8_t pin)
+{
+    timerPin = pin;
+}
 void ControlWebapp::onLoop()
 {
     if (isOn)
     {
-        digitalWrite(13, HIGH);
+        digitalWrite(timerPin, HIGH);
         unsigned long duration = getDuration();
         if (duration > timerDuration)
         {
@@ -29,7 +33,7 @@ void ControlWebapp::onLoop()
     }
     else
     {
-        digitalWrite(13, LOW);
+        digitalWrite(timerPin, LOW);
     }
 }
 
