@@ -9,6 +9,6 @@ with open('src/timer.js', 'r') as ifile:
         ofile.write('#ifndef TIMER_JS_H\n')
         ofile.write('#define TIMER_JS_H\n')
         ofile.write('//DO NOT MODIFY THIS FILE. It is generated automatically\n')
-        ofile.write('#define TIMER_JS ' + stringified + '\n')
+        ofile.write('#define TIMER_JS F(' + stringified + ')\n')
         ofile.write('#endif\n')
 print "Created src/timer.js.h"

@@ -50,13 +50,17 @@ void ControlWebapp::handler(HttpMethod method, String *path)
         }
         if (isOn)
         {
-            client->println("<p>Currently on</p>");
-            client->println("<p>Elapsed: <span id=elapsed>--</span>s</p>");
+            client->print(F("<p>Currently on</p>"));
+            client->print(F("<p>Elapsed: <span id=elapsed>--</span>s</p>"));
             htmlButtonForm("/off", "Off");
-            client->println("<script>var _e=" + String(getRest()) + ";</script>");
-            client->println("<script>");
-            client->println(TIMER_JS);
-            client->println("</script>");
+
+            client->print(F("<script>var _e="));
+            client->print(String(getRest()));
+            client->print(F(";</script>"));
+
+            client->print(F("<script>"));
+            client->print(TIMER_JS);
+            client->print(F("</script>"));
         }
     }
 
@@ -108,5 +112,9 @@ void ControlWebapp::setOn(unsigned long timer)
 
 void ControlWebapp::htmlButtonForm(String action, String label)
 {
-    client->println("<form method=post action=" + action + "><button>" + label + "</button></form>");
+    client->print(F("<form method=post action="));
+    client->print(action);
+    client->print(F("><button>"));
+    client->print(label);
+    client->print(F("</button></form>"));
 }
