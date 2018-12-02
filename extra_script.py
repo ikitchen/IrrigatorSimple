@@ -1,10 +1,13 @@
 import json
+from slimit import minify
 
 Import("env")
 
 with open('src/timer.js', 'r') as ifile:
     source = ifile.read()
-    stringified = json.dumps(source)
+    minified = minify(source, mangle=True, mangle_toplevel=True)
+    stringified = json.dumps(minified)
+    print minified
     with open('src/timer.js.h', 'w') as ofile:
         ofile.write('#ifndef TIMER_JS_H\n')
         ofile.write('#define TIMER_JS_H\n')

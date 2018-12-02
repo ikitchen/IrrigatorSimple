@@ -1,9 +1,14 @@
-var end = Date.now() + _e;
-setInterval(function() {
-    var elapsed = end - Date.now();
-    if (elapsed <= 0) {
-        window.location.reload();
-    } else {
-        document.getElementById('elapsed').innerText = (elapsed / 1000) | 0;
+(function(document, now, second) {
+    var end = now() + _e;
+    function loop() {
+        var elapsed = end - now();
+        if (elapsed <= 0) {
+            document.location.reload();
+        } else {
+            document.getElementById('elapsed').innerText =
+                (elapsed / second) | 0;
+        }
     }
-}, 1000);
+    setInterval(loop, second);
+    loop();
+})(document, Date.now, 1000);

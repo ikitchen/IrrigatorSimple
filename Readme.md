@@ -1,9 +1,15 @@
 ## Usage
 
-Install platformio.
+Install `platformio`.
 
 ```
 sudo pip install platformio
+```
+
+Install `slimit`.
+
+```
+sudo pip install slimit
 ```
 
 Build and upload the project.
